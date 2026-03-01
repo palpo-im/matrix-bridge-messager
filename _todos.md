@@ -42,30 +42,31 @@
   - [x] 实现 thiserror 错误转换
   - [x] 错误传播和处理策略
 
-### 阶段 2: 数据库层 (Phase 2: Database Layer)
-- [ ] 2.1 数据库连接管理
-  - [ ] 实现 DatabaseManager
-  - [ ] 支持多种数据库后端 (PostgreSQL, SQLite, MySQL)
-  - [ ] 连接池配置
-  - [ ] 数据库迁移系统
+### 阶段 2: 数据库层 (Phase 2: Database Layer) ✅
+- [x] 2.1 数据库连接管理
+  - [x] 实现 DatabaseManager
+  - [x] 支持多种数据库后端 (PostgreSQL, SQLite, MySQL)
+  - [x] 连接池配置
+  - [x] 数据库迁移系统
 
-- [ ] 2.2 数据模型定义
-  - [ ] User 模型 - Matrix 用户和 SMS 用户映射
-  - [ ] Room 模型 - Matrix 房间和 SMS 会话映射
-  - [ ] Message 模型 - 消息映射和去重
-  - [ ] Portal 模型 - 桥接门户配置
-  - [ ] Puppet 模型 - 虚拟用户管理
+- [x] 2.2 数据模型定义
+  - [x] User 模型 - Matrix 用户和 SMS 用户映射
+  - [x] Room 模型 - Matrix 房间和 SMS 会话映射
+  - [x] Message 模型 - 消息映射和去重
+  - [x] Portal 模型 - 桥接门户配置
+  - [x] ProcessedEvent 模型 - 事件去重
 
-- [ ] 2.3 数据存储实现
-  - [ ] UserStore - 用户数据存储
-  - [ ] RoomStore - 房间数据存储
-  - [ ] MessageStore - 消息数据存储
-  - [ ] PortalStore - 门户数据存储
+- [x] 2.3 数据存储实现
+  - [x] UserStore - 用户数据存储
+  - [x] RoomStore - 房间数据存储
+  - [x] MessageStore - 消息数据存储
+  - [x] EventStore - 事件存储
+  - [x] PortalStore - 门户数据存储
 
-- [ ] 2.4 数据库迁移脚本
-  - [ ] 创建初始迁移
-  - [ ] 索引优化
-  - [ ] 外键约束
+- [x] 2.4 数据库 schema 定义
+  - [x] 创建 schema.rs
+  - [x] 定义所有表结构
+  - [x] 设置表关联
 
 ### 阶段 3: Matrix 集成 (Phase 3: Matrix Integration)
 - [ ] 3.1 Matrix AppService 客户端
