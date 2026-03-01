@@ -1,0 +1,86 @@
+# Matrix Bridge Message Configuration
+# Sample configuration file
+
+# Bridge settings
+bridge:
+  domain: "example.com"
+  homeserver_url: "http://127.0.0.1:6006"
+  bind_address: "0.0.0.0"
+  port: 9006
+  bot_username: "message-bot"
+
+# Registration settings (can be overridden by registration file)
+registration:
+  id: "message"
+  url: "http://127.0.0.1:9006"
+  as_token: "CHANGE_ME_AS_TOKEN"
+  hs_token: "CHANGE_ME_HS_TOKEN"
+  sender_localpart: "_message_"
+
+# Message gateway configuration
+message:
+  # Gateway type: "twilio", "aws_sns", "mock"
+  gateway_type: "mock"
+  
+  # Twilio configuration (if gateway_type is "twilio")
+  twilio:
+    account_sid: ""
+    auth_token: ""
+    phone_number: ""
+  
+  # AWS SNS configuration (if gateway_type is "aws_sns")
+  aws_sns:
+    region: "us-east-1"
+    access_key_id: ""
+    secret_access_key: ""
+  
+  # Mock gateway configuration (for testing)
+  mock:
+    enabled: true
+
+# Database configuration
+database:
+  # Connection URL (auto-detects DB type from prefix)
+  # PostgreSQL: postgresql://user:password@localhost:5432/matrix_bridge
+  # SQLite: sqlite://./data/matrix-bridge.db
+  # MySQL: mysql://user:password@localhost:3306/matrix_bridge
+  url: "sqlite://./data/matrix-bridge-message.db"
+  max_connections: 10
+  min_connections: 1
+
+# Logging configuration
+logging:
+  level: "info"
+  format: "pretty"  # "pretty" or "json"
+
+# Bridge behavior
+behavior:
+  # Automatically create portal rooms for new SMS conversations
+  auto_create_portals: true
+  
+  # Sync contact names and avatars
+  sync_contacts: true
+  
+  # Enable read receipts
+  enable_read_receipts: true
+  
+  # Enable typing notifications
+  enable_typing_notifications: true
+  
+  # Maximum message age to bridge (in seconds)
+  max_message_age: 86400
+
+# Limits
+limits:
+  # Maximum file size for media (in bytes)
+  max_file_size: 104857600  # 100MB
+  
+  # Maximum message age for processing (in milliseconds)
+  matrix_event_age_limit_ms: 300000  # 5 minutes
+  
+  # Rate limiting
+  message_rate_limit: 100  # messages per minute
+
+# Admin users (Matrix user IDs)
+admin_users:
+  - "@admin:example.com"

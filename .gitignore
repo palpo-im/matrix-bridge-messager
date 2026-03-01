@@ -1,0 +1,15 @@
+/target
+/Cargo.lock
+/data
+*.db
+*.db-shm
+*.db-wal
+config.yaml
+message-registration.yaml
+.idea
+.vscode
+*.log
+*.swp
+*.swo
+*~
+.DS_Store
