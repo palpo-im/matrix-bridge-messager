@@ -1,8 +1,7 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Serialize, Deserialize, Queryable, Insertable)]
-#[diesel(table_name = crate::db::schema::user_mappings)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct UserMapping {
     pub id: i64,
     pub matrix_user_id: String,
@@ -13,8 +12,7 @@ pub struct UserMapping {
     pub updated_at: DateTime<Utc>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Queryable, Insertable)]
-#[diesel(table_name = crate::db::schema::room_mappings)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct RoomMapping {
     pub id: i64,
     pub matrix_room_id: String,
@@ -25,8 +23,7 @@ pub struct RoomMapping {
     pub updated_at: DateTime<Utc>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Queryable, Insertable)]
-#[diesel(table_name = crate::db::schema::message_mappings)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MessageMapping {
     pub id: i64,
     pub message_id: String,
@@ -36,8 +33,7 @@ pub struct MessageMapping {
     pub created_at: DateTime<Utc>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Queryable, Insertable)]
-#[diesel(table_name = crate::db::schema::processed_events)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ProcessedEvent {
     pub id: i64,
     pub event_id: String,
@@ -46,8 +42,7 @@ pub struct ProcessedEvent {
     pub processed_at: DateTime<Utc>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Queryable, Insertable)]
-#[diesel(table_name = crate::db::schema::portal_configs)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct PortalConfig {
     pub id: i64,
     pub matrix_room_id: String,

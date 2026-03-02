@@ -1,8 +1,8 @@
-mod user_store;
-mod room_store;
-mod message_store;
-mod event_store;
-mod portal_store;
+pub mod user_store;
+pub mod room_store;
+pub mod message_store;
+pub mod event_store;
+pub mod portal_store;
 
 pub use user_store::{UserStore, UserStoreTrait};
 pub use room_store::{RoomStore, RoomStoreTrait};
