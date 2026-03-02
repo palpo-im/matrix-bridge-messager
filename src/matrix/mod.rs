@@ -10,8 +10,10 @@ use url::Url;
 use crate::config::Config;
 
 pub mod event_handler;
+pub mod command_handler;
 
 pub use self::event_handler::{MatrixEventHandler, MatrixEventHandlerImpl, MatrixEventProcessor};
+pub use self::command_handler::{MatrixCommandHandler, MatrixCommandOutcome};
 
 pub struct BridgeAppserviceHandler {
     processor: Option<Arc<MatrixEventProcessor>>,

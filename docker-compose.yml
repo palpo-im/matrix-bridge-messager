@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  bridge:
+    build: .
+    container_name: matrix-bridge-message
+    restart: unless-stopped
+    ports:
+      - "9006:9006"
+    volumes:
+      - ./data:/data
+      - ./config.yaml:/data/config.yaml:ro
+    environment:
+      - RUST_LOG=info
+      - CONFIG_PATH=/data/config.yaml
+    depends_on:
+      - db
+    networks:
+      - bridge-network
+
+  db:
+    image: postgres:15-alpine
+    container_name: matrix-bridge-message-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=message_bridge
+      - POSTGRES_PASSWORD=message_bridge_secret
+      - POSTGRES_DB=message_bridge
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - bridge-network
+
+  # Alternative: SQLite (simpler setup)
+  # db:
+  #   image: alpine:latest
+  #   volumes:
+  #     - sqlite-data:/data
+  #   command: tail -f /dev/null
+
+volumes:
+  postgres-data:
+
+networks:
+  bridge-network:
+    driver: bridge
