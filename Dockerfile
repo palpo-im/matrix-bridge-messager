@@ -29,7 +29,7 @@ RUN apt-get update && \
 WORKDIR /app
 
 # Copy the binary
-COPY --from=builder /app/target/release/matrix-bridge-message /usr/local/bin/
+COPY --from=builder /app/target/release/matrix-bridge-messager /usr/local/bin/
 
 # Create data directory
 RUN mkdir -p /data
@@ -46,4 +46,5 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:9006/health || exit 1
 
 # Run the binary
-ENTRYPOINT ["matrix-bridge-message"]
+ENTRYPOINT ["matrix-bridge-messager"]
+

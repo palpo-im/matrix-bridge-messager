@@ -218,8 +218,8 @@ version: '3.8'
 
 services:
   bridge:
-    image: ghcr.io/palpo-im/matrix-bridge-message:latest
-    container_name: matrix-bridge-message
+    image: ghcr.io/palpo-im/matrix-bridge-messager:latest
+    container_name: matrix-bridge-messager
     restart: unless-stopped
     ports:
       - "9006:9006"
@@ -246,7 +246,7 @@ services:
 
   db:
     image: postgres:15-alpine
-    container_name: matrix-bridge-message-db
+    container_name: matrix-bridge-messager-db
     restart: unless-stopped
     environment:
       - POSTGRES_USER=bridge
@@ -361,3 +361,4 @@ This will check:
 - Tokens are not placeholder values
 - Database URL is valid
 - Gateway type is supported
+

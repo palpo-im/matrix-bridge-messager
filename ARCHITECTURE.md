@@ -351,7 +351,7 @@ Error Flow:
 ```bash
 # 1. 克隆仓库
 git clone <repo>
-cd matrix-bridge-message
+cd matrix-bridge-messager
 
 # 2. 配置
 cp config/config.sample.yaml config.yaml
@@ -384,7 +384,7 @@ cargo build
 cargo build --release
 
 # Docker
-docker build -t matrix-bridge-message .
+docker build -t matrix-bridge-messager .
 ```
 
 ## 未来改进
@@ -408,3 +408,4 @@ docker build -t matrix-bridge-message .
    - 分布式追踪
    - 告警系统
    - 性能监控
+

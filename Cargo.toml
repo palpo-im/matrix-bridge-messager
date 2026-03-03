@@ -10,7 +10,7 @@ keywords = ["matrix", "sms", "message", "bridge", "chat"]
 categories = ["network-programming", "web-programming"]
 
 [[bin]]
-name = "matrix-bridge-message"
+name = "matrix-bridge-messager"
 path = "src/main.rs"
 
 [features]
@@ -77,3 +77,4 @@ codegen-units = 4
 [profile.dev]
 debug = true
 opt-level = 0
+

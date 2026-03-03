@@ -1,4 +1,4 @@
-# matrix-bridge-message
+# matrix-bridge-messager
 
 用 Rust 编写的 Matrix <-> SMS/消息桥接器。
 
@@ -153,7 +153,7 @@ RUST_LOG=debug cargo run
 构建：
 
 ```bash
-docker build -t ghcr.io/palpo-im/matrix-bridge-message:main -f Dockerfile .
+docker build -t ghcr.io/palpo-im/matrix-bridge-messager:main -f Dockerfile .
 ```
 
 运行（需要在挂载目录中有 `/data/config.yaml`）：
@@ -163,7 +163,7 @@ docker run --rm \
   -p 9006:9006 \
   -v "$(pwd)/config:/data" \
   -e CONFIG_PATH=/data/config.yaml \
-  ghcr.io/palpo-im/matrix-bridge-message:main
+  ghcr.io/palpo-im/matrix-bridge-messager:main
 ```
 
 或使用 docker-compose：
@@ -200,3 +200,4 @@ Apache-2.0
 
 - [matrix-bridge-discord](https://github.com/palpo-im/matrix-bridge-discord) - Discord 桥接器
 - [mautrix-meta](https://github.com/mautrix/meta) - Facebook/Instagram 桥接器（Go）
+

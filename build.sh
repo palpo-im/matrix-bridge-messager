@@ -18,12 +18,13 @@ fi
 
 # Build the Docker image
 echo -e "${YELLOW}Building Docker image...${NC}"
-docker build -t matrix-bridge-message:latest .
+docker build -t matrix-bridge-messager:latest .
 
 echo -e "${GREEN}Build complete!${NC}"
 echo ""
 echo "To run the bridge:"
-echo "  docker run -d -p 9006:9006 -v \$(pwd)/config.yaml:/data/config.yaml matrix-bridge-message:latest"
+echo "  docker run -d -p 9006:9006 -v \$(pwd)/config.yaml:/data/config.yaml matrix-bridge-messager:latest"
 echo ""
 echo "Or with docker-compose:"
 echo "  docker-compose up -d"
+

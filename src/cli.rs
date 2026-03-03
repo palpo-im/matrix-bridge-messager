@@ -3,7 +3,7 @@ use serde_json::json;
 use std::path::PathBuf;
 
 #[derive(Parser, Debug)]
-#[command(name = "matrix-bridge-message")]
+#[command(name = "matrix-bridge-messager")]
 #[command(about = "Matrix-SMS/Message Bridge", long_about = None)]
 pub struct Cli {
     #[command(subcommand)]
@@ -119,3 +119,4 @@ fn generate_token() -> String {
 pub fn parse_args() -> Cli {
     Cli::parse()
 }
+

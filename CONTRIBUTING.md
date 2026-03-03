@@ -16,8 +16,8 @@
 
 1. **克隆仓库**
 ```bash
-git clone https://github.com/palpo-im/matrix-bridge-message.git
-cd matrix-bridge-message
+git clone https://github.com/palpo-im/matrix-bridge-messager.git
+cd matrix-bridge-messager
 ```
 
 2. **安装依赖**
@@ -182,10 +182,11 @@ src/
 
 ## 获取帮助
 
-- GitHub Issues: https://github.com/palpo-im/matrix-bridge-message/issues
+- GitHub Issues: https://github.com/palpo-im/matrix-bridge-messager/issues
 - Matrix Room: #message-bridge:palpo.im
 - Email: chris@acroidea.com
 
 ## 许可证
 
 通过提交代码，您同意您的贡献将根据 Apache-2.0 许可证进行许可。
+

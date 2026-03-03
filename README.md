@@ -1,4 +1,4 @@
-# matrix-bridge-message
+# matrix-bridge-messager
 
 A Matrix <-> SMS/Message bridge written in Rust.
 
@@ -176,3 +176,4 @@ Contributions are welcome! Please read our contributing guidelines before submit
 
 - [matrix-bridge-discord](https://github.com/palpo-im/matrix-bridge-discord) - Discord bridge
 - [mautrix-meta](https://github.com/mautrix/meta) - Facebook/Instagram bridge (Go)
+

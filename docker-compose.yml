@@ -3,7 +3,7 @@ version: '3.8'
 services:
   bridge:
     build: .
-    container_name: matrix-bridge-message
+    container_name: matrix-bridge-messager
     restart: unless-stopped
     ports:
       - "9006:9006"
@@ -20,7 +20,7 @@ services:
 
   db:
     image: postgres:15-alpine
-    container_name: matrix-bridge-message-db
+    container_name: matrix-bridge-messager-db
     restart: unless-stopped
     environment:
       - POSTGRES_USER=message_bridge
@@ -44,3 +44,4 @@ volumes:
 networks:
   bridge-network:
     driver: bridge
+

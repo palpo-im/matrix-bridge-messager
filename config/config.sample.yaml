@@ -15,7 +15,7 @@ registration:
   url: "http://127.0.0.1:9006"
   as_token: "CHANGE_ME_AS_TOKEN"
   hs_token: "CHANGE_ME_HS_TOKEN"
-  sender_localpart: "_message_"
+  sender_localpart: "_messager_"
 
 # Message gateway configuration
 message:
@@ -44,7 +44,7 @@ database:
   # PostgreSQL: postgresql://user:password@localhost:5432/matrix_bridge
   # SQLite: sqlite://./data/matrix-bridge.db
   # MySQL: mysql://user:password@localhost:3306/matrix_bridge
-  url: "sqlite://./data/matrix-bridge-message.db"
+  url: "sqlite://./data/matrix-bridge-messager.db"
   max_connections: 10
   min_connections: 1
 
@@ -84,3 +84,4 @@ limits:
 # Admin users (Matrix user IDs)
 admin_users:
   - "@admin:example.com"
+
