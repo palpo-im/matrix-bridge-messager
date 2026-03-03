@@ -1,11 +1,11 @@
 [package]
-name = "matrix-bridge-message"
+name = "matrix-bridge-messager"
 version = "0.1.0"
 edition = "2024"
 authors = ["Palpo Team <chris@acroidea.com>"]
 description = "A bridge between Matrix and SMS/Message services written in Rust"
 license = "Apache-2.0"
-repository = "https://github.com/palpo-im/matrix-bridge-message"
+repository = "https://github.com/palpo-im/matrix-bridge-messager"
 keywords = ["matrix", "sms", "message", "bridge", "chat"]
 categories = ["network-programming", "web-programming"]
 
