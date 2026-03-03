@@ -1,4 +1,3 @@
-use crate::matrix::MatrixEvent;
 
 const DEFAULT_PROVISIONING_POWER_LEVEL: i64 = 50;
 
@@ -151,3 +150,4 @@ impl MatrixCommandHandler {
         )
     }
 }
+

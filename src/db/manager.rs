@@ -168,3 +168,18 @@ impl DatabaseManager {
         self.portal_store.clone()
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::DbType;
+
+    #[test]
+    fn detect_db_type_from_url() {
+        assert_eq!(DbType::from_url("postgresql://localhost/db"), DbType::Postgres);
+        assert_eq!(DbType::from_url("postgres://localhost/db"), DbType::Postgres);
+        assert_eq!(DbType::from_url("mysql://localhost/db"), DbType::Mysql);
+        assert_eq!(DbType::from_url("mariadb://localhost/db"), DbType::Mysql);
+        assert_eq!(DbType::from_url("sqlite://./test.db"), DbType::Sqlite);
+        assert_eq!(DbType::from_url("./local.db"), DbType::Sqlite);
+    }
+}

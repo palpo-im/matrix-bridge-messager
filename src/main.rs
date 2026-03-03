@@ -15,6 +15,7 @@ mod message;
 mod bridge;
 mod web;
 mod utils;
+mod metrics;
 
 use config::Config;
 use db::DatabaseManager;
@@ -94,7 +95,7 @@ async fn handle_command(command: cli::Commands) -> Result<()> {
 
 async fn run_bridge() -> Result<()> {
     let config = Arc::new(Config::load()?);
-    info!("matrix-message bridge starting up");
+    info!("matrix-messager bridge starting up");
     
     let db_manager = Arc::new(DatabaseManager::new(&config.database).await?);
     db_manager.migrate().await?;
@@ -158,6 +159,6 @@ async fn run_bridge() -> Result<()> {
     web_handle.abort();
     bridge_handle.abort();
     
-    info!("matrix-message bridge shutting down");
+    info!("matrix-messager bridge shutting down");
     Ok(())
 }

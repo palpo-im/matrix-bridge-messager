@@ -318,29 +318,29 @@ All configuration options can be overridden with environment variables:
 
 ```bash
 # Bridge settings
-export MATRIX_BRIDGE_MESSAGE__BRIDGE__DOMAIN="example.com"
-export MATRIX_BRIDGE_MESSAGE__BRIDGE__HOMESERVER_URL="https://matrix.example.com"
-export MATRIX_BRIDGE_MESSAGE__BRIDGE__BIND_ADDRESS="0.0.0.0"
-export MATRIX_BRIDGE_MESSAGE__BRIDGE__PORT="9006"
+export MATRIX_BRIDGE_MESSAGER__BRIDGE__DOMAIN="example.com"
+export MATRIX_BRIDGE_MESSAGER__BRIDGE__HOMESERVER_URL="https://matrix.example.com"
+export MATRIX_BRIDGE_MESSAGER__BRIDGE__BIND_ADDRESS="0.0.0.0"
+export MATRIX_BRIDGE_MESSAGER__BRIDGE__PORT="9006"
 
 # Registration settings
-export MATRIX_BRIDGE_MESSAGE__REGISTRATION__ID="message"
-export MATRIX_BRIDGE_MESSAGE__REGISTRATION__AS_TOKEN="your_token"
-export MATRIX_BRIDGE_MESSAGE__REGISTRATION__HS_TOKEN="your_token"
+export MATRIX_BRIDGE_MESSAGER__REGISTRATION__ID="message"
+export MATRIX_BRIDGE_MESSAGER__REGISTRATION__AS_TOKEN="your_token"
+export MATRIX_BRIDGE_MESSAGER__REGISTRATION__HS_TOKEN="your_token"
 
 # Database settings
-export MATRIX_BRIDGE_MESSAGE__DATABASE__URL="postgresql://user:pass@host/db"
-export MATRIX_BRIDGE_MESSAGE__DATABASE__MAX_CONNECTIONS="20"
+export MATRIX_BRIDGE_MESSAGER__DATABASE__URL="postgresql://user:pass@host/db"
+export MATRIX_BRIDGE_MESSAGER__DATABASE__MAX_CONNECTIONS="20"
 
 # Message gateway settings
-export MATRIX_BRIDGE_MESSAGE__MESSAGE__GATEWAY_TYPE="twilio"
-export MATRIX_BRIDGE_MESSAGE__MESSAGE__TWILIO__ACCOUNT_SID="your_sid"
-export MATRIX_BRIDGE_MESSAGE__MESSAGE__TWILIO__AUTH_TOKEN="your_token"
-export MATRIX_BRIDGE_MESSAGE__MESSAGE__TWILIO__PHONE_NUMBER="+1234567890"
+export MATRIX_BRIDGE_MESSAGER__MESSAGE__GATEWAY_TYPE="twilio"
+export MATRIX_BRIDGE_MESSAGER__MESSAGE__TWILIO__ACCOUNT_SID="your_sid"
+export MATRIX_BRIDGE_MESSAGER__MESSAGE__TWILIO__AUTH_TOKEN="your_token"
+export MATRIX_BRIDGE_MESSAGER__MESSAGE__TWILIO__PHONE_NUMBER="+1234567890"
 
 # Logging settings
-export MATRIX_BRIDGE_MESSAGE__LOGGING__LEVEL="info"
-export MATRIX_BRIDGE_MESSAGE__LOGGING__FORMAT="json"
+export MATRIX_BRIDGE_MESSAGER__LOGGING__LEVEL="info"
+export MATRIX_BRIDGE_MESSAGER__LOGGING__FORMAT="json"
 
 # Special environment variables
 export CONFIG_PATH="/path/to/config.yaml"
@@ -361,4 +361,5 @@ This will check:
 - Tokens are not placeholder values
 - Database URL is valid
 - Gateway type is supported
+
 

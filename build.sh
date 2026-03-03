@@ -7,7 +7,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-echo -e "${GREEN}Matrix Bridge Message - Build Script${NC}"
+echo -e "${GREEN}Matrix Bridge Messager - Build Script${NC}"
 echo "=================================="
 
 # Check if Docker is installed
@@ -27,4 +27,5 @@ echo "  docker run -d -p 9006:9006 -v \$(pwd)/config.yaml:/data/config.yaml matr
 echo ""
 echo "Or with docker-compose:"
 echo "  docker-compose up -d"
+
 

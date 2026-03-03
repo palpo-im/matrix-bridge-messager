@@ -2,7 +2,7 @@
 
 ## 贡献指南
 
-感谢您考虑为 Matrix Bridge Message 项目做出贡献！
+感谢您考虑为 Matrix Bridge Messager 项目做出贡献！
 
 ## 开发环境设置
 
@@ -189,4 +189,5 @@ src/
 ## 许可证
 
 通过提交代码，您同意您的贡献将根据 Apache-2.0 许可证进行许可。
+
 

@@ -1,4 +1,4 @@
-# Matrix Bridge Message Configuration
+# Matrix Bridge Messager Configuration
 # Sample configuration file
 
 # Bridge settings
@@ -15,7 +15,7 @@ registration:
   url: "http://127.0.0.1:9006"
   as_token: "CHANGE_ME_AS_TOKEN"
   hs_token: "CHANGE_ME_HS_TOKEN"
-  sender_localpart: "_messager_"
+  sender_localpart: "_message_"
 
 # Message gateway configuration
 message:
@@ -84,4 +84,5 @@ limits:
 # Admin users (Matrix user IDs)
 admin_users:
   - "@admin:example.com"
+
 

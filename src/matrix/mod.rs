@@ -1,5 +1,6 @@
 use std::sync::Arc;
-use anyhow::{Context, Result};
+use std::collections::{HashMap, HashSet};
+use anyhow::Result;
 use matrix_bot_sdk::appservice::{Appservice, AppserviceHandler};
 use matrix_bot_sdk::client::{MatrixAuth, MatrixClient};
 use serde_json::Value;
@@ -68,6 +69,14 @@ pub struct MatrixAppservice {
     config: Arc<Config>,
     pub appservice: Appservice,
     handler: Arc<RwLock<BridgeAppserviceHandler>>,
+    room_state: Arc<RwLock<HashMap<String, RoomState>>>,
+}
+
+#[derive(Debug, Clone, Default)]
+struct RoomState {
+    name: Option<String>,
+    topic: Option<String>,
+    members: HashSet<String>,
 }
 
 #[derive(Debug, Clone)]
@@ -126,6 +135,7 @@ impl MatrixAppservice {
             config,
             appservice,
             handler,
+            room_state: Arc::new(RwLock::new(HashMap::new())),
         })
     }
 
@@ -168,12 +178,106 @@ impl MatrixAppservice {
         topic: Option<&str>,
         invite: Option<&[&str]>,
     ) -> Result<String> {
-        debug!("Would create room: {:?} {:?}", name, topic);
-        Ok(format!("!mock_room_{}:{}", uuid::Uuid::new_v4(), self.config.bridge.domain))
+        let room_id = format!("!mock_room_{}:{}", uuid::Uuid::new_v4(), self.config.bridge.domain);
+
+        let mut members = HashSet::new();
+        members.insert(self.bot_user_id());
+        if let Some(invites) = invite {
+            for user in invites {
+                members.insert((*user).to_string());
+            }
+        }
+
+        let state = RoomState {
+            name: name.map(ToOwned::to_owned),
+            topic: topic.map(ToOwned::to_owned),
+            members,
+        };
+        self.room_state.write().await.insert(room_id.clone(), state);
+
+        debug!("Created mock room {} name={:?} topic={:?}", room_id, name, topic);
+        Ok(room_id)
     }
 
     pub async fn invite_user(&self, room_id: &str, user_id: &str) -> Result<()> {
-        debug!("Would invite {} to {}", user_id, room_id);
+        let mut rooms = self.room_state.write().await;
+        let room = rooms
+            .entry(room_id.to_string())
+            .or_insert_with(RoomState::default);
+        room.members.insert(user_id.to_string());
+        debug!("Invited {} to {}", user_id, room_id);
+        Ok(())
+    }
+
+    pub async fn set_room_membership(
+        &self,
+        room_id: &str,
+        user_id: &str,
+        joined: bool,
+    ) -> Result<()> {
+        let mut rooms = self.room_state.write().await;
+        let room = rooms
+            .entry(room_id.to_string())
+            .or_insert_with(RoomState::default);
+        if joined {
+            room.members.insert(user_id.to_string());
+        } else {
+            room.members.remove(user_id);
+        }
+        debug!(
+            "Updated membership in {} for {} -> {}",
+            room_id, user_id, joined
+        );
+        Ok(())
+    }
+
+    pub async fn sync_room_metadata(
+        &self,
+        room_id: &str,
+        name: Option<&str>,
+        topic: Option<&str>,
+    ) -> Result<()> {
+        let mut rooms = self.room_state.write().await;
+        let room = rooms
+            .entry(room_id.to_string())
+            .or_insert_with(RoomState::default);
+        if let Some(name) = name {
+            room.name = Some(name.to_string());
+        }
+        if let Some(topic) = topic {
+            room.topic = Some(topic.to_string());
+        }
+        debug!(
+            "Synced room metadata for {} name={:?} topic={:?}",
+            room_id, room.name, room.topic
+        );
+        Ok(())
+    }
+
+    pub async fn room_members(&self, room_id: &str) -> Vec<String> {
+        let rooms = self.room_state.read().await;
+        rooms
+            .get(room_id)
+            .map(|room| room.members.iter().cloned().collect())
+            .unwrap_or_default()
+    }
+
+    pub async fn room_metadata(&self, room_id: &str) -> (Option<String>, Option<String>) {
+        let rooms = self.room_state.read().await;
+        if let Some(room) = rooms.get(room_id) {
+            (room.name.clone(), room.topic.clone())
+        } else {
+            (None, None)
+        }
+    }
+
+    pub async fn ensure_room_member(&self, room_id: &str, user_id: &str) -> Result<()> {
+        let members = self.room_members(room_id).await;
+        if members.iter().any(|member| member == user_id) {
+            return Ok(());
+        }
+        self.invite_user(room_id, user_id).await?;
         Ok(())
     }
 }
+

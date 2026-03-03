@@ -123,9 +123,9 @@ database:
 支持以下环境变量：
 
 - `CONFIG_PATH` - 配置文件路径
-- `MATRIX_BRIDGE_MESSAGE__BRIDGE__DOMAIN` - 桥接器域
-- `MATRIX_BRIDGE_MESSAGE__REGISTRATION__AS_TOKEN` - AppService 令牌
-- `MATRIX_BRIDGE_MESSAGE__REGISTRATION__HS_TOKEN` - 主服务器令牌
+- `MATRIX_BRIDGE_MESSAGER__BRIDGE__DOMAIN` - 桥接器域
+- `MATRIX_BRIDGE_MESSAGER__REGISTRATION__AS_TOKEN` - AppService 令牌
+- `MATRIX_BRIDGE_MESSAGER__REGISTRATION__HS_TOKEN` - 主服务器令牌
 - 以及更多（参见配置文档）
 
 ## 开发
@@ -200,4 +200,5 @@ Apache-2.0
 
 - [matrix-bridge-discord](https://github.com/palpo-im/matrix-bridge-discord) - Discord 桥接器
 - [mautrix-meta](https://github.com/mautrix/meta) - Facebook/Instagram 桥接器（Go）
+
 

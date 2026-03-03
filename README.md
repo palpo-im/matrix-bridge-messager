@@ -139,9 +139,9 @@ database:
 The following environment variables are supported:
 
 - `CONFIG_PATH` - Path to config file
-- `MATRIX_BRIDGE_MESSAGE__BRIDGE__DOMAIN` - Bridge domain
-- `MATRIX_BRIDGE_MESSAGE__REGISTRATION__AS_TOKEN` - AppService token
-- `MATRIX_BRIDGE_MESSAGE__REGISTRATION__HS_TOKEN` - Homeserver token
+- `MATRIX_BRIDGE_MESSAGER__BRIDGE__DOMAIN` - Bridge domain
+- `MATRIX_BRIDGE_MESSAGER__REGISTRATION__AS_TOKEN` - AppService token
+- `MATRIX_BRIDGE_MESSAGER__REGISTRATION__HS_TOKEN` - Homeserver token
 - And more (see configuration documentation)
 
 ## Development
@@ -176,4 +176,5 @@ Contributions are welcome! Please read our contributing guidelines before submit
 
 - [matrix-bridge-discord](https://github.com/palpo-im/matrix-bridge-discord) - Discord bridge
 - [mautrix-meta](https://github.com/mautrix/meta) - Facebook/Instagram bridge (Go)
+
 

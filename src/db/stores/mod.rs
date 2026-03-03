@@ -1,3 +1,4 @@
+pub(crate) mod memory;
 pub mod user_store;
 pub mod room_store;
 pub mod message_store;

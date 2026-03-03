@@ -13,3 +13,7 @@ message-registration.yaml
 *.swo
 *~
 .DS_Store
+
+.tmp*
+.claude
+_*.md

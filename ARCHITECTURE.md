@@ -2,13 +2,13 @@
 
 ## 概述
 
-Matrix Bridge Message 是一个用 Rust 编写的 Matrix <-> SMS/消息桥接器，采用模块化设计，支持多种数据库后端和 SMS 网关。
+Matrix Bridge Messager 是一个用 Rust 编写的 Matrix <-> SMS/消息桥接器，采用模块化设计，支持多种数据库后端和 SMS 网关。
 
 ## 系统架构
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     Matrix Bridge Message                    │
+│                     Matrix Bridge Messager                    │
 ├─────────────────────────────────────────────────────────────┤
 │                                                               │
 │  ┌──────────────┐      ┌──────────────┐      ┌────────────┐ │
@@ -210,7 +210,7 @@ SMS -> Matrix:
 ```yaml
 config.yaml (文件)
     ↓
-环境变量覆盖 (MATRIX_BRIDGE_MESSAGE__*)
+环境变量覆盖 (MATRIX_BRIDGE_MESSAGER__*)
     ↓
 Config 结构体
     ↓
@@ -408,4 +408,5 @@ docker build -t matrix-bridge-messager .
    - 分布式追踪
    - 告警系统
    - 性能监控
+
 

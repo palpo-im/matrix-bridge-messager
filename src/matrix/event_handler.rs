@@ -1,7 +1,7 @@
 use std::sync::Arc;
 use anyhow::Result;
 use async_trait::async_trait;
-use tracing::{debug, info, warn};
+use tracing::debug;
 
 use super::{MatrixAppservice, MatrixEvent};
 
@@ -187,3 +187,4 @@ impl MatrixEventProcessor {
         user_id.starts_with("@_message_")
     }
 }
+
